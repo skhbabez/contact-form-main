@@ -14,12 +14,14 @@
   </head>
   <body>
     <main>
-      <form aria-labelledby="contact-form-heading">
+      <form class="contact-form" aria-labelledby="contact-form-heading">
         <h1 id="contact-form-heading">Contact Us</h1>
         <fieldset>
           <legend>Contact Information</legend>
-          <div class="form-control">
-            <label for="first-name"> First Name </label>
+          <div class="text-input">
+            <label for="first-name">
+              First Name <span class="required" aria-hidden="true">*</span>
+            </label>
             <input
               id="first-name"
               type="text"
@@ -27,12 +29,18 @@
               autocomplete="given-name"
               required
             />
-            <span id="first-name-desc" aria-live="assertive">
+            <span
+              class="error-message"
+              id="first-name-desc"
+              aria-live="assertive"
+            >
               This field is required
             </span>
           </div>
-          <div>
-            <label for="last-name"> Last Name </label>
+          <div class="text-input">
+            <label for="last-name">
+              Last Name <span class="required" aria-hidden="true">*</span>
+            </label>
             <input
               id="last-name"
               type="text"
@@ -40,12 +48,18 @@
               aria-describedby="last-name-desc"
               required
             />
-            <span id="last-name-desc" aria-live="assertive">
+            <span
+              class="error-message"
+              id="last-name-desc"
+              aria-live="assertive"
+            >
               This field is required
             </span>
           </div>
-          <div>
-            <label for="email"> Email Address </label>
+          <div class="text-input">
+            <label for="email">
+              Email Address <span class="required" aria-hidden="true">*</span>
+            </label>
             <input
               id="email"
               type="email"
@@ -53,15 +67,17 @@
               aria-describedby="email-desc"
               required
             />
-            <span id="email-desc" aria-live="assertive">
+            <span class="error-message" id="email-desc" aria-live="assertive">
               Please enter a valid email address This field is required
             </span>
           </div>
         </fieldset>
 
         <fieldset id="query-type">
-          <legend>Query Type</legend>
-          <div>
+          <legend>
+            Query Type <span class="required" aria-hidden="true">*</span>
+          </legend>
+          <label for="query-type-general" class="radio-selection">
             <input
               type="radio"
               id="query-type-general"
@@ -69,30 +85,38 @@
               aria-describedby="query-type-desc"
               required
             />
-            <label for="query-type-general"> General Enquiry </label>
-          </div>
-          <div>
+            General Enquiry
+          </label>
+
+          <label for="query-type-support" class="radio-selection">
             <input
               type="radio"
               id="query-type-support"
               name="query"
               aria-describedby="query-type-desc"
             />
-            <label for="query-type-support"> Support Request </label>
-          </div>
-          <span id="query-type-desc" aria-live="assertive">
+            Support Request
+          </label>
+
+          <span
+            class="error-message"
+            id="query-type-desc"
+            aria-live="assertive"
+          >
             Please select a query type
           </span>
         </fieldset>
-        <div>
-          <label for="message"> Message </label>
+        <div class="text-input">
+          <label for="message">
+            Message <span class="required" aria-hidden="true">*</span>
+          </label>
           <textarea
             id="message"
             aria-describedby="message-desc"
             required
           ></textarea>
-          <span id="message-desc" aria-live="assertive">
-            Error: This field is required
+          <span class="error-message" id="message-desc" aria-live="assertive">
+            This field is required
           </span>
         </div>
         <div>
@@ -104,14 +128,19 @@
           />
           <label for="consent-action">
             I consent to being contacted by the team
+            <span class="required" aria-hidden="true">*</span>
           </label>
-          <span id="consent-action-desc" aria-live="assertive">
+          <span
+            class="error-message"
+            id="consent-action-desc"
+            aria-live="assertive"
+          >
             To submit this form, please consent to being contacted
           </span>
         </div>
 
-        <button type="submit">Submit</button>
-        <div aria-live="assertive">
+        <button class="button" type="submit">Submit</button>
+        <div class="success-message" aria-live="assertive">
           <p>Message Sent!</p>
           <p>Thanks for completing the form. We'll be in touch soon!</p>
         </div>

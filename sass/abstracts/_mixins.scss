@@ -1,0 +1,14 @@
+// @use "variables" as v;
+
+// @mixin validation-border() {
+//   --border-color: #{v.$grey-500};
+//   transition: border-color 100ms ease-in-out;
+//   border: 1px solid var(--border-color);
+//   outline: none;
+//   & :is(:focus, :focus-visible, :hover) {
+//     --border-color: #{v.$green-600};
+//   }
+//   & :user-invalid {
+//     --border-color: #{v.$red-error};
+//   }
+// }

@@ -1,0 +1,53 @@
+@use "../abstracts" as v;
+
+.radio-selection {
+  & input[type="radio"] {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+  }
+  &:has(input:checked) {
+    background-color: v.$green-200;
+    border: 1px solid v.$green-600;
+    &::before {
+      content: "";
+      display: block;
+      height: 24px;
+      aspect-ratio: 1;
+      background: radial-gradient(
+        circle 9.75px,
+        v.$green-600,
+        v.$green-600 5.25px,
+        transparent 5.25px,
+        transparent 8.25px,
+        v.$green-600 8.25px,
+        v.$green-600 9.75px,
+        transparent
+      );
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    height: 24px;
+    aspect-ratio: 1;
+    background: radial-gradient(
+      circle 9.75px,
+      transparent 8.25px,
+      v.$grey-500 8.25px,
+      v.$grey-500 9.75px,
+      transparent
+    );
+  }
+
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: v.$space-12;
+  padding: v.$space-12 v.$space-24;
+  border: 1px solid v.$grey-500;
+  border-radius: 8px;
+}

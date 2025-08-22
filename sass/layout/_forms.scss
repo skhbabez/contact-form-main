@@ -1,3 +1,5 @@
+@use "../abstracts" as v;
+
 .contact-form {
-    
+  padding: v.$space-24-40-768;
 }

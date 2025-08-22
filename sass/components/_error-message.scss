@@ -1,0 +1,5 @@
+@use "../abstracts" as v;
+
+.error-message {
+  color: v.$red-error;
+}

@@ -16,19 +16,112 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Karla", sans-serif;
+fieldset {
+  border: none;
 }
 
-.form-control input {
-  border-radius: 8px;
-  border: 1px solid #86a2a5;
+body {
+  font-family: "Karla", sans-serif;
+  line-height: 150%;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+  font-size: 1.125rem;
+}
+
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.text-input input,
+.text-input textarea {
+  --border-color: #86a2a5;
+  transition: border-color 100ms ease-in-out;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
   cursor: pointer;
   display: inline-block;
-  padding: 12px 24px;
+  padding: 0.75rem 1.5rem;
+  outline: none;
 }
-.form-control input:hover {
+.text-input input:is(:focus, :focus-visible, :hover),
+.text-input textarea:is(:focus, :focus-visible, :hover) {
+  --border-color: #0c7d69;
+}
+.text-input input:user-invalid,
+.text-input textarea:user-invalid {
+  --border-color: #d73c3c;
+}
+
+.button {
+  border-radius: 0.5rem;
+  padding: 1rem 2.5rem;
+  background-color: #0c7d69;
+  border: none;
+  color: #ffffff;
+  transition: background-color 100ms ease-in-out;
+}
+.button:hover {
+  background-color: #2a4144;
+}
+
+.error-message {
+  color: #d73c3c;
+}
+
+.required {
+  color: #0c7d69;
+}
+
+.radio-selection {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #86a2a5;
+  border-radius: 8px;
+}
+.radio-selection input[type=radio] {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+}
+.radio-selection:has(input:checked) {
+  background-color: #e0f1e8;
   border: 1px solid #0c7d69;
+}
+.radio-selection:has(input:checked)::before {
+  content: "";
+  display: block;
+  height: 24px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle 9.75px, #0c7d69, #0c7d69 5.25px, transparent 5.25px, transparent 8.25px, #0c7d69 8.25px, #0c7d69 9.75px, transparent);
+}
+.radio-selection::before {
+  content: "";
+  display: block;
+  height: 24px;
+  aspect-ratio: 1;
+  background: radial-gradient(circle 9.75px, transparent 8.25px, #86a2a5 8.25px, #86a2a5 9.75px, transparent);
+}
+
+.contact-form {
+  padding: clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
 }
 
 /*# sourceMappingURL=main.css.map */

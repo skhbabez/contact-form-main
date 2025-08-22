@@ -1,0 +1,5 @@
+@use "../abstracts" as v;
+
+.required {
+  color: v.$green-600;
+}

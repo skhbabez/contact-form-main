@@ -1,6 +1,17 @@
+// colors
 $grey-900: #2a4144;
 $grey-500: #86a2a5;
 $white: #ffffff;
 $green-600: #0c7d69;
 $green-200: #e0f1e8;
 $red-error: #d73c3c;
+
+//spacings
+$space-24-40-768: clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
+$space-8: 0.5rem;
+$space-12: 0.75rem;
+$space-16: 1rem;
+$space-24: 1.5rem;
+$space-32: 2rem;
+$space-40: 2.5rem;
+$space-128: 8rem;
