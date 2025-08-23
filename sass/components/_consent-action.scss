@@ -1,0 +1,5 @@
+@use "../abstracts" as v;
+
+.consent-action {
+  @include v.spacer(v.$space-8);
+}

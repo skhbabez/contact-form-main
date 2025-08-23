@@ -15,97 +15,95 @@
   <body>
     <main>
       <form class="contact-form" aria-labelledby="contact-form-heading">
-        <h1 id="contact-form-heading">Contact Us</h1>
-        <fieldset>
-          <legend>Contact Information</legend>
-          <div class="text-input">
-            <label for="first-name">
-              First Name <span class="required" aria-hidden="true">*</span>
-            </label>
-            <input
-              id="first-name"
-              type="text"
-              aria-describedby="first-name-desc"
-              autocomplete="given-name"
-              required
-            />
-            <span
-              class="error-message"
-              id="first-name-desc"
-              aria-live="assertive"
-            >
-              This field is required
-            </span>
-          </div>
-          <div class="text-input">
-            <label for="last-name">
-              Last Name <span class="required" aria-hidden="true">*</span>
-            </label>
-            <input
-              id="last-name"
-              type="text"
-              autocomplete="family-name"
-              aria-describedby="last-name-desc"
-              required
-            />
-            <span
-              class="error-message"
-              id="last-name-desc"
-              aria-live="assertive"
-            >
-              This field is required
-            </span>
-          </div>
-          <div class="text-input">
-            <label for="email">
-              Email Address <span class="required" aria-hidden="true">*</span>
-            </label>
-            <input
-              id="email"
-              type="email"
-              autocomplete="email"
-              aria-describedby="email-desc"
-              required
-            />
-            <span class="error-message" id="email-desc" aria-live="assertive">
-              Please enter a valid email address This field is required
-            </span>
-          </div>
-        </fieldset>
+        <div class="contact-form-body">
+          <h1 id="contact-form-heading">Contact Us</h1>
+          <fieldset class="contact-information">
+            <legend>Contact Information</legend>
+            <div class="text-input">
+              <label for="first-name">
+                First Name <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="first-name"
+                type="text"
+                aria-describedby="first-name-desc"
+                autocomplete="given-name"
+                required
+              />
+              <p
+                class="error-message"
+                id="first-name-desc"
+                aria-live="assertive"
+              >
+                This field is required
+              </p>
+            </div>
+            <div class="text-input">
+              <label for="last-name">
+                Last Name <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="last-name"
+                type="text"
+                autocomplete="family-name"
+                aria-describedby="last-name-desc"
+                required
+              />
+              <p
+                class="error-message"
+                id="last-name-desc"
+                aria-live="assertive"
+              >
+                This field is required
+              </p>
+            </div>
+            <div class="text-input">
+              <label for="email">
+                Email Address <span class="required" aria-hidden="true">*</span>
+              </label>
+              <input
+                id="email"
+                type="email"
+                autocomplete="email"
+                aria-describedby="email-desc"
+                required
+              />
+              <p class="error-message" id="email-desc" aria-live="assertive">
+                Please enter a valid email address This field is required
+              </p>
+            </div>
+          </fieldset>
 
-        <fieldset id="query-type">
-          <legend>
-            Query Type <span class="required" aria-hidden="true">*</span>
-          </legend>
-          <label for="query-type-general" class="radio-selection">
-            <input
-              type="radio"
-              id="query-type-general"
-              name="query"
-              aria-describedby="query-type-desc"
-              required
-            />
-            General Enquiry
-          </label>
+          <fieldset id="query-type" class="contact-form-query">
+            <legend>
+              Query Type <span class="required" aria-hidden="true">*</span>
+            </legend>
 
-          <label for="query-type-support" class="radio-selection">
-            <input
-              type="radio"
-              id="query-type-support"
-              name="query"
-              aria-describedby="query-type-desc"
-            />
-            Support Request
-          </label>
+            <label for="query-type-general" class="radio-selection">
+              <input
+                type="radio"
+                id="query-type-general"
+                name="query"
+                aria-describedby="query-type-desc"
+                required
+              />
+              General Enquiry
+            </label>
+            <label for="query-type-support" class="radio-selection">
+              <input
+                type="radio"
+                id="query-type-support"
+                name="query"
+                aria-describedby="query-type-desc"
+              />
+              Support Request
+            </label>
 
-          <span
-            class="error-message"
-            id="query-type-desc"
-            aria-live="assertive"
-          >
-            Please select a query type
-          </span>
-        </fieldset>
+            <p class="error-message" id="query-type-desc" aria-live="assertive">
+              Please select a query type
+            </p>
+          </fieldset>
+        </div>
         <div class="text-input">
           <label for="message">
             Message <span class="required" aria-hidden="true">*</span>
@@ -115,28 +113,31 @@
             aria-describedby="message-desc"
             required
           ></textarea>
-          <span class="error-message" id="message-desc" aria-live="assertive">
+          <p class="error-message" id="message-desc" aria-live="assertive">
             This field is required
-          </span>
+          </p>
         </div>
-        <div>
-          <input
-            id="consent-action"
-            type="checkbox"
-            aria-labelledby="consent-action-desc"
-            required
-          />
-          <label for="consent-action">
-            I consent to being contacted by the team
-            <span class="required" aria-hidden="true">*</span>
+
+        <div class="consent-action">
+          <label class="checkbox-input">
+            <input
+              id="consent-action"
+              type="checkbox"
+              aria-labelledby="consent-action-desc"
+              required
+            />
+            <span>
+              I consent to being contacted by the team
+              <span class="required" aria-hidden="true">*</span>
+            </span>
           </label>
-          <span
+          <p
             class="error-message"
             id="consent-action-desc"
             aria-live="assertive"
           >
             To submit this form, please consent to being contacted
-          </span>
+          </p>
         </div>
 
         <button class="button" type="submit">Submit</button>

@@ -1,9 +1,12 @@
 @use "../abstracts" as v;
 
 .text-input {
-  display: flex;
-  flex-direction: column;
-  gap: v.$space-8;
+  @include v.spacer(v.$space-8);
+  label,
+  input,
+  textarea {
+    display: block;
+  }
 
   & input,
   textarea {

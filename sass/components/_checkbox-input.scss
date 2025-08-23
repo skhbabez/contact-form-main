@@ -1,0 +1,27 @@
+@use "../abstracts" as v;
+
+.checkbox-input {
+  & input[type="checkbox"] {
+    position: absolute;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+  }
+  &:has(input:checked) {
+    --radio-icon: url("../assets/images/icon-checkbox-check.svg");
+  }
+  &::before {
+    content: "";
+    display: inline-block;
+    height: v.$space-24;
+    aspect-ratio: 1;
+    background: var(--radio-icon, url("../assets/images/icon-checkbox.svg"))
+      no-repeat center;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: v.$space-16;
+}
+
