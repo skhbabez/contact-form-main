@@ -10,8 +10,16 @@
 
 fieldset {
   border: none;
+  display: block;
 }
 
 body {
   background-color: v.$green-200;
 }
+
+// input,
+// select,
+// textarea,
+// button {
+//   inline-size: 100%;
+// }

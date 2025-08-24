@@ -18,7 +18,7 @@
         <div class="contact-form-body">
           <h1 id="contact-form-heading">Contact Us</h1>
           <fieldset class="contact-information">
-            <legend>Contact Information</legend>
+            <legend class="visuallyhidden">Contact Information</legend>
             <div class="text-input">
               <label for="first-name">
                 First Name <span class="required" aria-hidden="true">*</span>
@@ -79,43 +79,45 @@
               Query Type <span class="required" aria-hidden="true">*</span>
             </legend>
 
-            <label for="query-type-general" class="radio-selection">
-              <input
-                type="radio"
-                id="query-type-general"
-                name="query"
-                aria-describedby="query-type-desc"
-                required
-              />
-              General Enquiry
-            </label>
-            <label for="query-type-support" class="radio-selection">
-              <input
-                type="radio"
-                id="query-type-support"
-                name="query"
-                aria-describedby="query-type-desc"
-              />
-              Support Request
-            </label>
+            <div class="query-inputs">
+              <label for="query-type-general" class="radio-selection">
+                <input
+                  type="radio"
+                  id="query-type-general"
+                  name="query"
+                  aria-describedby="query-type-desc"
+                  required
+                />
+                General Enquiry
+              </label>
+              <label for="query-type-support" class="radio-selection">
+                <input
+                  type="radio"
+                  id="query-type-support"
+                  name="query"
+                  aria-describedby="query-type-desc"
+                />
+                Support Request
+              </label>
+            </div>
 
             <p class="error-message" id="query-type-desc" aria-live="assertive">
               Please select a query type
             </p>
           </fieldset>
-        </div>
-        <div class="text-input">
-          <label for="message">
-            Message <span class="required" aria-hidden="true">*</span>
-          </label>
-          <textarea
-            id="message"
-            aria-describedby="message-desc"
-            required
-          ></textarea>
-          <p class="error-message" id="message-desc" aria-live="assertive">
-            This field is required
-          </p>
+          <div class="text-input">
+            <label for="message">
+              Message <span class="required" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="message"
+              aria-describedby="message-desc"
+              required
+            ></textarea>
+            <p class="error-message" id="message-desc" aria-live="assertive">
+              This field is required
+            </p>
+          </div>
         </div>
 
         <div class="consent-action">

@@ -1,11 +1,48 @@
 @use "../abstracts" as v;
 
 .contact-form {
+  label,
+  input,
+  textarea,
+  button {
+    inline-size: 100%;
+  }
   padding: v.$space-24-40-768;
-  max-inline-size: 736px;
   background-color: v.$white;
   border-radius: v.$space-16;
-  display: flex;
-  flex-direction: column;
-  gap: v.$space-40;
+  max-inline-size: clamp(43.125rem, 49.2857rem + -6.8452vw, 46rem);
+
+  @include v.spacer(v.$space-40);
+
+  .contact-form-body {
+    display: flex;
+    flex-direction: column;
+    gap: v.$space-24;
+    .contact-information {
+      display: grid;
+      gap: v.$space-24;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+        :nth-child(4) {
+          grid-row: 2;
+          grid-column: 1 / span 2;
+        }
+      }
+    }
+    .contact-form-query {
+      @include v.spacer(v.$space-16);
+      .query-inputs {
+        display: flex;
+        gap: v.$space-16;
+        flex-direction: column;
+        @media (min-width: 768px) {
+          flex-direction: row;
+        }
+        * {
+          flex: 1;
+        }
+      }
+    }
+  }
 }
