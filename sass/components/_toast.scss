@@ -1,3 +1,40 @@
+@use "../abstracts" as v;
 .toast {
-    
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 24px;
+  max-inline-size: 498px;
+  inline-size: 100%;
+
+  & div {
+    background-color: v.$grey-900;
+    border-radius: v.$space-12;
+    padding: v.$space-24;
+    color: v.$white;
+    font-family: inherit;
+    font-size: 1.125rem;
+    line-height: inherit;
+
+    & p:first-of-type {
+      display: flex;
+      gap: v.$space-8;
+      font-weight: bold;
+      &::before {
+        content: "";
+        display: inline-block;
+        height: v.$space-24;
+        aspect-ratio: 1;
+        background: url("../assets/images/icon-success-check.svg") no-repeat
+          center;
+      }
+    }
+    & p:last-of-type {
+      font-size: 1rem;
+      margin-block-start: v.$space-8;
+      color: v.$green-200;
+    }
+  }
 }

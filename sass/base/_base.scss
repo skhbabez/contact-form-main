@@ -15,11 +15,13 @@ fieldset {
 
 body {
   background-color: v.$green-200;
+  block-size: 100dvh;
 }
 
-// input,
-// select,
-// textarea,
-// button {
-//   inline-size: 100%;
-// }
+main {
+  block-size: 100%;
+  padding-inline: v.$space-16;
+  display: grid;
+  place-items: center;
+  position: relative;
+}

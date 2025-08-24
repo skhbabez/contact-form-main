@@ -23,6 +23,15 @@ fieldset {
 
 body {
   background-color: #e0f1e8;
+  block-size: 100dvh;
+}
+
+main {
+  block-size: 100%;
+  padding-inline: 1rem;
+  display: grid;
+  place-items: center;
+  position: relative;
 }
 
 body {
@@ -43,6 +52,7 @@ textarea,
 button {
   font-family: inherit;
   font-size: 1.125rem;
+  line-height: inherit;
 }
 
 .visuallyhidden {
@@ -54,6 +64,10 @@ button {
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.hidden {
+  display: none;
 }
 
 .text-input > * + * {
@@ -98,6 +112,43 @@ button {
 
 .error-message {
   color: #d73c3c;
+}
+
+.toast {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 24px;
+  max-inline-size: 498px;
+  inline-size: 100%;
+}
+.toast div {
+  background-color: #2a4144;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.125rem;
+  line-height: inherit;
+}
+.toast div p:first-of-type {
+  display: flex;
+  gap: 0.5rem;
+  font-weight: bold;
+}
+.toast div p:first-of-type::before {
+  content: "";
+  display: inline-block;
+  height: 1.5rem;
+  aspect-ratio: 1;
+  background: url("../assets/images/icon-success-check.svg") no-repeat center;
+}
+.toast div p:last-of-type {
+  font-size: 1rem;
+  margin-block-start: 0.5rem;
+  color: #e0f1e8;
 }
 
 .required {
@@ -161,7 +212,8 @@ button {
   padding: clamp(1.5rem, 0.5458rem + 4.0712vw, 2.5rem);
   background-color: #ffffff;
   border-radius: 1rem;
-  max-inline-size: clamp(43.125rem, 49.2857rem - 6.8452vw, 46rem);
+  inline-size: 100%;
+  max-inline-size: min(12.7887rem + 36.9014vw, 46rem);
 }
 .contact-form label,
 .contact-form input,
@@ -172,10 +224,8 @@ button {
 .contact-form > * + * {
   margin-block-start: 2.5rem;
 }
-.contact-form .contact-form-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.contact-form .contact-form-body > * + * {
+  margin-block-start: 1.5rem;
 }
 .contact-form .contact-form-body .contact-information {
   display: grid;

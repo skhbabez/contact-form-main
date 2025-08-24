@@ -14,7 +14,18 @@
   </head>
   <body>
     <main>
-      <form class="contact-form" aria-labelledby="contact-form-heading">
+      <output form="contact-form" class="toast">
+        <div class="hidden">
+          <h2 class="visuallyhidden">Form submission success</h2>
+          <p>Message Sent!</p>
+          <p>Thanks for completing the form. We'll be in touch soon!</p>
+        </div>
+      </output>
+      <form
+        id="contact-form"
+        class="contact-form"
+        aria-labelledby="contact-form-heading"
+      >
         <div class="contact-form-body">
           <h1 id="contact-form-heading">Contact Us</h1>
           <fieldset class="contact-information">
@@ -112,6 +123,7 @@
             <textarea
               id="message"
               aria-describedby="message-desc"
+              rows="2"
               required
             ></textarea>
             <p class="error-message" id="message-desc" aria-live="assertive">
@@ -143,10 +155,6 @@
         </div>
 
         <button class="button" type="submit">Submit</button>
-        <div class="success-message" aria-live="assertive">
-          <p>Message Sent!</p>
-          <p>Thanks for completing the form. We'll be in touch soon!</p>
-        </div>
       </form>
     </main>
   </body>

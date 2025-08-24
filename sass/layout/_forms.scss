@@ -10,14 +10,12 @@
   padding: v.$space-24-40-768;
   background-color: v.$white;
   border-radius: v.$space-16;
-  max-inline-size: clamp(43.125rem, 49.2857rem + -6.8452vw, 46rem);
-
+  inline-size: 100%;
+  max-inline-size: min(12.7887rem + 36.9014vw, 46rem);
   @include v.spacer(v.$space-40);
 
   .contact-form-body {
-    display: flex;
-    flex-direction: column;
-    gap: v.$space-24;
+    @include v.spacer(v.$space-24);
     .contact-information {
       display: grid;
       gap: v.$space-24;

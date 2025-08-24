@@ -1,7 +1,9 @@
 @use "variables" as v;
 
-@mixin spacer($space: 1em) {
-  & > * + * {
+@mixin spacer($space: 1em, $element-1: "*", $element-2: "*") {
+  & > #{$element-1} + #{$element-2} {
     margin-block-start: $space;
   }
 }
+
+
