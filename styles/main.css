@@ -89,13 +89,19 @@ button {
   padding: 0.75rem 1.5rem;
   outline: none;
 }
-.text-input input:is(:focus, :focus-visible, :hover),
-.text-input textarea:is(:focus, :focus-visible, :hover) {
+.text-input input:hover,
+.text-input textarea:hover {
   --border-color: #0c7d69;
+}
+.text-input input:is(:focus, :focus-visible),
+.text-input textarea:is(:focus, :focus-visible) {
+  outline: 1px solid var(--focus-color, transparent);
+  --focus-color: #0c7d69;
 }
 .text-input input:user-invalid,
 .text-input textarea:user-invalid {
   --border-color: #d73c3c;
+  --focus-color: #d73c3c;
 }
 
 .button {
@@ -109,9 +115,14 @@ button {
 .button:hover {
   background-color: #2a4144;
 }
+.button:is(:focus, :focus-visible) {
+  outline: 2px solid #2a4144;
+}
 
 .error-message {
   color: #d73c3c;
+  opacity: 100%;
+  transition: opacity 300ms ease-in-out;
 }
 
 .toast {
@@ -176,6 +187,9 @@ button {
   border: 1px solid #0c7d69;
   --radio-icon: url("../assets/images/icon-radio-selected.svg");
 }
+.radio-selection:has(input:focus, input:focus-visible) {
+  outline: 1px solid #0c7d69;
+}
 .radio-selection::before {
   content: "";
   display: block;
@@ -199,6 +213,9 @@ button {
 }
 .checkbox-input:has(input:checked) {
   --radio-icon: url("../assets/images/icon-checkbox-check.svg");
+}
+.checkbox-input:has(input:focus, input:focus-visible) {
+  outline: 1px solid #0c7d69;
 }
 .checkbox-input::before {
   content: "";

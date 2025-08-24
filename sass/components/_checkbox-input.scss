@@ -7,10 +7,12 @@
     appearance: none;
     background-color: #fff;
     margin: 0;
-
   }
   &:has(input:checked) {
     --radio-icon: url("../assets/images/icon-checkbox-check.svg");
+  }
+  &:has(input:focus, input:focus-visible) {
+    outline: 1px solid v.$green-600;
   }
   &::before {
     content: "";

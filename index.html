@@ -11,20 +11,21 @@
     />
     <link rel="stylesheet" href="styles/main.css" />
     <title>Frontend Mentor | Contact form</title>
+    <script defer src="main.js"></script>
   </head>
   <body>
     <main>
-      <output form="contact-form" class="toast">
-        <div class="hidden">
-          <h2 class="visuallyhidden">Form submission success</h2>
+      <div class="toast" role="status">
+        <div id="toast" class="hidden">
           <p>Message Sent!</p>
           <p>Thanks for completing the form. We'll be in touch soon!</p>
         </div>
-      </output>
+      </div>
       <form
         id="contact-form"
         class="contact-form"
         aria-labelledby="contact-form-heading"
+        novalidate
       >
         <div class="contact-form-body">
           <h1 id="contact-form-heading">Contact Us</h1>
@@ -37,17 +38,16 @@
               <input
                 id="first-name"
                 type="text"
-                aria-describedby="first-name-desc"
+                name="firstname"
+                aria-describedby="first-name-err"
                 autocomplete="given-name"
                 required
               />
               <p
                 class="error-message"
-                id="first-name-desc"
+                id="first-name-err"
                 aria-live="assertive"
-              >
-                This field is required
-              </p>
+              ></p>
             </div>
             <div class="text-input">
               <label for="last-name">
@@ -56,17 +56,16 @@
               <input
                 id="last-name"
                 type="text"
+                name="lastname"
                 autocomplete="family-name"
-                aria-describedby="last-name-desc"
+                aria-describedby="last-name-err"
                 required
               />
               <p
                 class="error-message"
-                id="last-name-desc"
+                id="last-name-err"
                 aria-live="assertive"
-              >
-                This field is required
-              </p>
+              ></p>
             </div>
             <div class="text-input">
               <label for="email">
@@ -75,13 +74,12 @@
               <input
                 id="email"
                 type="email"
+                name="email"
                 autocomplete="email"
-                aria-describedby="email-desc"
+                aria-describedby="email-err"
                 required
               />
-              <p class="error-message" id="email-desc" aria-live="assertive">
-                Please enter a valid email address This field is required
-              </p>
+              <p class="error-message" id="email-err" aria-live="assertive"></p>
             </div>
           </fieldset>
 
@@ -96,7 +94,7 @@
                   type="radio"
                   id="query-type-general"
                   name="query"
-                  aria-describedby="query-type-desc"
+                  aria-describedby="query-type-err"
                   required
                 />
                 General Enquiry
@@ -106,15 +104,17 @@
                   type="radio"
                   id="query-type-support"
                   name="query"
-                  aria-describedby="query-type-desc"
+                  aria-describedby="query-type-err"
                 />
                 Support Request
               </label>
             </div>
 
-            <p class="error-message" id="query-type-desc" aria-live="assertive">
-              Please select a query type
-            </p>
+            <p
+              class="error-message"
+              id="query-type-err"
+              aria-live="assertive"
+            ></p>
           </fieldset>
           <div class="text-input">
             <label for="message">
@@ -122,13 +122,12 @@
             </label>
             <textarea
               id="message"
-              aria-describedby="message-desc"
+              name="message"
+              aria-describedby="message-err"
               rows="2"
               required
             ></textarea>
-            <p class="error-message" id="message-desc" aria-live="assertive">
-              This field is required
-            </p>
+            <p class="error-message" id="message-err" aria-live="assertive"></p>
           </div>
         </div>
 
@@ -137,7 +136,8 @@
             <input
               id="consent-action"
               type="checkbox"
-              aria-labelledby="consent-action-desc"
+              name="consentaction"
+              aria-describedby="consent-action-err"
               required
             />
             <span>
@@ -147,11 +147,9 @@
           </label>
           <p
             class="error-message"
-            id="consent-action-desc"
+            id="consent-action-err"
             aria-live="assertive"
-          >
-            To submit this form, please consent to being contacted
-          </p>
+          ></p>
         </div>
 
         <button class="button" type="submit">Submit</button>

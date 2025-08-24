@@ -18,11 +18,16 @@
     display: inline-block;
     padding: v.$space-12 v.$space-24;
     outline: none;
-    &:is(:focus, :focus-visible, :hover) {
+    &:hover {
       --border-color: #{v.$green-600};
+    }
+    &:is(:focus, :focus-visible) {
+      outline: 1px solid var(--focus-color, transparent);
+      --focus-color: #{v.$green-600};
     }
     &:user-invalid {
       --border-color: #{v.$red-error};
+      --focus-color: #{v.$red-error};
     }
   }
 }
