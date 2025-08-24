@@ -1,13 +1,19 @@
+"use strict";
 const form = document.getElementById("contact-form");
 const toast = document.getElementById("toast");
+
+const capitalize = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};
+
 const errorMessages = {
-  valueMissing: (type) =>
-    type === "radio"
+  valueMissing: (input) =>
+    input.type === "radio"
       ? "Please select a query type"
-      : type === "checkbox"
+      : input.type === "checkbox"
       ? "To submit this form, please consent to being contacted"
-      : "This field is required",
-  typeMismatch: (type) => "Please enter a valid email address",
+      : ` ${input.labels[0]?.firstChild.nodeValue || "Field"} is required`,
+  typeMismatch: (input) => "Please enter a valid email address",
 };
 
 const validateInput = (input, submit = false) => {
@@ -24,7 +30,7 @@ const validateInput = (input, submit = false) => {
           input.matches(":user-invalid") ||
           submit)
       ) {
-        return val(input.type);
+        return val(input);
       }
     }
     return "";
@@ -44,16 +50,14 @@ const showToast = () => {
 };
 
 const handleFormInput = (event) => {
-  validateInput(event.target, true);
+  validateInput(event.target);
 };
 
 const handleFormSubmit = (event) => {
   event.preventDefault();
-  Array.from(form.elements).forEach((element) => {
-    if (element instanceof HTMLInputElement) {
-      console.log(element);
-      validateInput(element, true);
-    }
+  form.querySelectorAll("input, select, textarea").forEach((element) => {
+    console.log(element);
+    validateInput(element, true);
   });
   if (form.checkValidity()) {
     showToast();
