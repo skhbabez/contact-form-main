@@ -2,11 +2,7 @@
 
 .radio-selection {
   & input[type="radio"] {
-    position: absolute;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #fff;
-    margin: 0;
+    @include v.hideInput();
   }
   &:has(input:checked) {
     background-color: v.$green-200;

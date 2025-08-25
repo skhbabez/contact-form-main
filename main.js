@@ -1,6 +1,7 @@
 "use strict";
 const form = document.getElementById("contact-form");
 const toast = document.getElementById("toast");
+const formInputs = form.querySelectorAll("input, select, textarea");
 
 const capitalize = (text) => {
   return text.charAt(0).toUpperCase() + text.slice(1);
@@ -12,7 +13,7 @@ const errorMessages = {
       ? "Please select a query type"
       : input.type === "checkbox"
       ? "To submit this form, please consent to being contacted"
-      : ` ${input.labels[0]?.firstChild.nodeValue || "Field"} is required`,
+      : `${input.labels[0]?.firstChild.nodeValue || "Field"} is required`,
   typeMismatch: (input) => "Please enter a valid email address",
 };
 
@@ -55,7 +56,7 @@ const handleFormInput = (event) => {
 
 const handleFormSubmit = (event) => {
   event.preventDefault();
-  form.querySelectorAll("input, select, textarea").forEach((element) => {
+  formInputs.forEach((element) => {
     console.log(element);
     validateInput(element, true);
   });

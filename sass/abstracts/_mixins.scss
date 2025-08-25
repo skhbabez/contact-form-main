@@ -6,4 +6,11 @@
   }
 }
 
-
+@mixin hideInput() {
+  position: absolute;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  outline: none;
+}
