@@ -3,10 +3,6 @@ const form = document.getElementById("contact-form");
 const toast = document.getElementById("toast");
 const formInputs = form.querySelectorAll("input, select, textarea");
 
-const capitalize = (text) => {
-  return text.charAt(0).toUpperCase() + text.slice(1);
-};
-
 const errorMessages = {
   valueMissing: (input) =>
     input.type === "radio"
