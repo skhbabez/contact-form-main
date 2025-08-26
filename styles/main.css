@@ -188,7 +188,7 @@ button {
 .required {
   display: inline-block;
   color: #0c7d69;
-  margin-inline-start: 0.5rem;
+  margin-inline-start: 0.25rem;
 }
 
 .radio-selection {
