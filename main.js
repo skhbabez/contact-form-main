@@ -18,10 +18,8 @@ const errorMessages = {
 };
 
 const validateInput = (input, submit = false) => {
-  input.setAttribute("aria-invalid", !input.checkValidity());
   const errId = input.getAttribute("aria-describedby");
-  console.log(errId);
-  console.log(input.validity);
+  input.setAttribute("aria-invalid", !input.checkValidity());
   const getErrorMessage = (validity) => {
     for (const [key, val] of Object.entries(errorMessages)) {
       if (
@@ -36,7 +34,6 @@ const validateInput = (input, submit = false) => {
     }
     return "";
   };
-
   const errorContainer = form.querySelector("#" + errId);
   errorContainer.textContent = getErrorMessage(input.validity);
 };
@@ -46,18 +43,21 @@ const showToast = () => {
   setTimeout(() => {
     toast.classList.add("hidden");
   }, 5000);
-
-  console.log("toast");
 };
 
 const handleFormInput = (event) => {
-  validateInput(event.target);
+  const input = event.target;
+  if (
+    input instanceof HTMLInputElement ||
+    input instanceof HTMLTextAreaElement
+  ) {
+    validateInput(input);
+  }
 };
 
 const handleFormSubmit = (event) => {
   event.preventDefault();
   formInputs.forEach((element) => {
-    console.log(element);
     validateInput(element, true);
   });
   if (form.checkValidity()) {

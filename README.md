@@ -6,17 +6,12 @@ This is a solution to the [Contact form challenge on Frontend Mentor](https://ww
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -33,21 +28,10 @@ Users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
-
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Solution URL: [https://github.com/skhbabez/contact-form-main](- Solution URL: [https://github.com/skhbabez/contact-form-main](https://your-solution-url.com)
+  )
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
 ## My process
@@ -59,43 +43,57 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- sass
+- constraint validation api
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+I focussed mainly on accessibility for this challenge as well as using sass/scss for a challenge. Furthermore I wanted to test out the constraint validation API, seeing how i could utilize it for creating Forms. One major thing I learned was how to utilize live regions. I spent a siginificant amount of time just reading thorugh documentation, to get it right with nvda.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<fieldset class="contact-information">
+  <legend class="visuallyhidden">Contact Information</legend>
+  <div class="text-input">
+    <label for="first-name">
+      First Name <span class="required" aria-hidden="true">*</span>
+    </label>
+    <input
+      id="first-name"
+      type="text"
+      name="firstname"
+      aria-describedby="first-name-err"
+      autocomplete="given-name"
+      required
+    />
+    <p class="error-message" id="first-name-err" aria-live="assertive"></p>
+  </div>
+</fieldset>
 ```
 
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+One thing that gave me trouble was creating the toast . Initially I used an output element as a wrapper, but this one ended not working correctly on firefox. I instead ended up using `role=status`, which works with nvda but feels less semantic as a result.
+
+```html
+<div class="toast" role="status">
+  <div id="toast" class="hidden">
+    <p>Message Sent!</p>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
+</div>
 ```
+
+Another thing I noticed was, how the screenreader would read out the generated error messages but not referencing the input fields associated with them. The standard error messages in the design were not specific enough. So I decided to enhance them using the label of the input.
 
 ```js
-const proudOfThisFunc = () => {
-  console.log("🎉");
-};
+`${input.labels[0]?.firstChild.nodeValue || "Field"} is required`;
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-I used the erro messages defined in the design file. But after testing this with a screenreader - i came to the conclusin - i should write unique error messaages per field. Like For the text inputs, announcing thet the field is missing on its won is not useful and requires the field name too
+This was surprisingly challenging and taught me to really read up on form accessibilty more. Furthermore, the constriant validation API is really limiting and I had to come up with a lot of strange workarounds just to make it fit the design. I will probably abstain from it for future Frontendmentor projects and instead implement my own validation or use a library like Zod. While I see the value, it seems like you have to heavily design your forms with native Validation in mind to make the best use of it.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Building a Toast ](https://web.dev/articles/building/a-toast-component) - I liked the idea with output presented here, even if I did not end up using it.
+- [Custom radio buttons](https://moderncss.dev/pure-css-custom-styled-radio-buttons/) - Good resource on how to style custom radio buttons and checkboxes.
+- [7-1 Pattern](https://github.com/KittyGiraudel/sass-boilerplate/blob/master/stylesheets/components/_button.scss) - Example respository showcasing the 7-1 pattern.
+- [Accessible forms](https://www.w3.org/WAI/tutorials/forms/) - I use this guide form the WAI heavily to finish this challenge.
