@@ -30,9 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/skhbabez/contact-form-main](- Solution URL: [https://github.com/skhbabez/contact-form-main](https://your-solution-url.com)
-  )
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/skhbabez/contact-form-main][https://github.com/skhbabez/contact-form-main]
+- Live Site URL: [https://skhbabez.github.io/contact-form-main/](https://skhbabez.github.io/contact-form-main/)
 
 ## My process
 
