@@ -115,6 +115,7 @@ button {
   border: none;
   color: #ffffff;
   transition: background-color 100ms ease-in-out;
+  font-weight: bold;
 }
 .button:hover {
   background-color: #2a4144;
