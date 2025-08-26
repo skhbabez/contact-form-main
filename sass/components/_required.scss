@@ -1,5 +1,7 @@
 @use "../abstracts" as v;
 
 .required {
+  display: inline-block;
   color: v.$green-600;
+  margin-inline-start: v.$space-8;
 }

@@ -1,7 +1,9 @@
+@use "../abstracts" as v;
 body {
   font-family: "Karla", sans-serif;
   line-height: 150%;
   font-size: 1rem;
+  color: v.$grey-900;
 }
 
 h1 {

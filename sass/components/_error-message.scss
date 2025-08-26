@@ -5,3 +5,7 @@
   opacity: 100%;
   transition: opacity 300ms ease-in-out;
 }
+
+.error-message:empty {
+  @include v.visuallyHidden();
+}

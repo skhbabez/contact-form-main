@@ -37,6 +37,7 @@ body {
   font-family: "Karla", sans-serif;
   line-height: 150%;
   font-size: 1rem;
+  color: #2a4144;
 }
 
 h1 {
@@ -124,6 +125,17 @@ button {
   transition: opacity 300ms ease-in-out;
 }
 
+.error-message:empty {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
 .toast {
   position: fixed;
   z-index: 1;
@@ -169,7 +181,9 @@ button {
 }
 
 .required {
+  display: inline-block;
   color: #0c7d69;
+  margin-inline-start: 0.5rem;
 }
 
 .radio-selection {
@@ -255,10 +269,12 @@ button {
 .contact-form .contact-form-body .contact-information {
   display: grid;
   gap: 1.5rem;
+  margin-block-start: 32px;
 }
 @media (min-width: 768px) {
   .contact-form .contact-form-body .contact-information {
     grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
   }
   .contact-form .contact-form-body .contact-information :nth-child(4) {
     grid-row: 2;

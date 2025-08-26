@@ -19,9 +19,11 @@
     .contact-information {
       display: grid;
       gap: v.$space-24;
+      margin-block-start: 32px;
 
       @media (min-width: 768px) {
         grid-template-columns: 1fr 1fr;
+        column-gap: v.$space-16;
         :nth-child(4) {
           grid-row: 2;
           grid-column: 1 / span 2;
