@@ -44,6 +44,7 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
   line-height: 1;
+  letter-spacing: -1px;
 }
 
 input,
@@ -77,6 +78,9 @@ button {
 .text-input input,
 .text-input textarea {
   display: block;
+}
+.text-input textarea {
+  max-block-size: 105px;
 }
 .text-input input,
 .text-input textarea {

@@ -8,6 +8,10 @@
     display: block;
   }
 
+  textarea {
+    max-block-size: 105px;
+  }
+
   & input,
   textarea {
     --border-color: #{v.$grey-500};
